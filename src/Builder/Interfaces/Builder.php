@@ -6,15 +6,15 @@ interface Builder
 {
     public function reset();
 
-    public function addSauce();
+    public function addSauce(string $sauce = ''): void;
 
-    public function addVeggies();
+    public function addVeggies(string $veggies = ''): void;
 
-    public function addFruit();
+    public function addFruit(string $fruit = ''): void;
 
-    public function addProtein();
+    public function addProtein(string $protein = ''): void;
 
-    public function addCheese();
+    public function addCheese(string $cheese = ''): void;
 
     public function bake();
 }

@@ -13,10 +13,8 @@ class Director
     }
     public function makeMargherita()
     {
-        $this->builder->addSauce();
-        $this->builder->addVeggies();
-        $this->builder->addProtein();
-        $this->builder->addFruit();
-        $this->builder->addCheese();
+        $this->builder->addSauce('Tomato');
+        $this->builder->addVeggies('Basil');
+        $this->builder->addCheese('Mozzarella');
     }
 }

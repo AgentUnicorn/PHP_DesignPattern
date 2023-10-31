@@ -5,7 +5,7 @@ namespace App\Builder\Concrete;
 use App\Builder\Interfaces\Builder;
 use App\Builder\Products\Pizza;
 
-class ConcreteMargherita implements Builder
+class ConcretePizza implements Builder
 {
     private $pizza;
 
@@ -20,23 +20,29 @@ class ConcreteMargherita implements Builder
         $this->pizza = new Pizza();
     }
 
-    public function addSauce() {
-        $this->pizza->ingredients[] = 'Tomato';
+    public function addSauce(string $sauce = ''): void {
+        if (!empty($sauce)) {
+            $this->pizza->ingredients[] = $sauce;
+        }
     }
 
-    public function addVeggies() {
-        $this->pizza->ingredients[] = 'Basil';
+    public function addVeggies(string $veggies = ''): void {
+        if (!empty($veggies)) {
+            $this->pizza->ingredients[] = $veggies;
+        }
     }
 
-    public function addCheese() {
-        $this->pizza->ingredients[] = 'Mozzarella';
+    public function addCheese(string $cheese = ''): void {
+        if (!empty($cheese)) {
+            $this->pizza->ingredients[] = $cheese;
+        }
     }
 
-    public function addFruit() {
+    public function addFruit(string $fruit = ''): void {
         // TODO: Implement addFruit() method.
     }
 
-    public function addProtein()
+    public function addProtein(string $protein = ''): void
     {
         // TODO: Implement addProtein() method.
     }
