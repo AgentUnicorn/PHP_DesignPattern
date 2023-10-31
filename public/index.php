@@ -10,15 +10,27 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
 // Singleton
-use App\config\DatabaseConfig;
-$host = DatabaseConfig::getValue('host');
+//use App\Singleton\Log;
+//Log::push("Hello");
+//Log::push("World");
+//Log::print();
 
 // Abstract Factory
-use App\AbstractFactory\FactoryClasses\Honda\HondaFactory;
+//use App\AbstractFactory\FactoryClasses\Honda\HondaFactory;
+//
+//$factory = new HondaFactory();
+//$bike = $factory->createBike('CBR650', 2023);
+//$car = $factory->createCar('NSX', 1997);
+//
+//var_dump($bike->getFullName());
+//var_dump($car->getFullName());
 
-$factory = new HondaFactory();
-$bike = $factory->createBike('CBR650', 2023);
-$car = $factory->createCar('NSX', 1997);
+// Builder
+use App\Builder\Director;
+use App\Builder\Concrete\ConcreteMargherita;
 
-var_dump($bike->getFullName());
-var_dump($car->getFullName());
+$director = new Director();
+$builder = new ConcreteMargherita();
+$director->setBuilder($builder);
+$director->makeMargherita();
+$builder->bake()->listIngredients();
